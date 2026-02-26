@@ -11,6 +11,10 @@
   "categories": [
     "Themes"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JiHong88/vscode-theme-solkai"
+  },
   "keywords": [
     "theme",
     "dark",
