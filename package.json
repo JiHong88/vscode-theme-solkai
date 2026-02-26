@@ -1,0 +1,32 @@
+{
+  "name": "solkai-theme",
+  "displayName": "Solkai Theme",
+  "description": "A dark/light theme set combining One Monokai syntax with Solarized Light warmth. Features custom boolean/null/undefined highlighting.",
+  "version": "1.0.0",
+  "publisher": "jihong88",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme", "dark", "light", "monokai", "solarized",
+    "one monokai", "color theme", "warm light"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Solkai Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/final-dark-color-theme.json"
+      },
+      {
+        "label": "Solkai Light",
+        "uiTheme": "vs",
+        "path": "./themes/final-light-color-theme.json"
+      }
+    ]
+  }
+}

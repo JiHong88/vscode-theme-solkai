@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { 
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #1a1a1e; padding: 40px 32px;
+    display: flex; flex-direction: column; align-items: center; gap: 20px;
+  }
+  .title-area { text-align: center; margin-bottom: 8px; }
+  .title-area h1 { color: #e8e8e8; font-size: 28px; font-weight: 600; letter-spacing: -0.5px; }
+  .title-area p { color: #777; font-size: 13px; margin-top: 6px; }
+  h2 { color: #888; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 12px; }
+  .themes { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+  .window { width: 560px; border-radius: 10px; overflow: hidden; box-shadow: 0 6px 24px rgba(0,0,0,0.4); }
+  .titlebar { height: 36px; display: flex; align-items: center; padding: 0 12px; gap: 7px; font-size: 11px; }
+  .dot { width: 11px; height: 11px; border-radius: 50%; }
+  .dot.r { background: #FF5F57; } .dot.y { background: #FFBD2E; } .dot.g { background: #28CA41; }
+  .titlebar span { flex:1; text-align:center; opacity: 0.5; }
+  .dark .titlebar { background: #1E1F22; color: #abb2bf; }
+  .light .titlebar { background: #D5CEBE; color: #3B4048; }
+  pre {
+    padding: 16px 20px;
+    font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', Menlo, monospace;
+    font-size: 12.5px; line-height: 1.65; overflow-x: auto; tab-size: 2;
+  }
+  /* DARK */
+  .dark pre { background: #282c34; color: #abb2bf; }
+  .dark .kw { color: #e06c75; } .dark .fn { color: #98c379; } .dark .cls { color: #61afef; }
+  .dark .str { color: #e5c07b; } .dark .num { color: #c678dd; } .dark .cmt { color: #3498DB; }
+  .dark .type { color: #56b6c2; } .dark .arg { color: #d19a66; font-style: italic; }
+  .dark .op { color: #e06c75; } .dark .p { color: #abb2bf; } .dark .obj { color: #61afef; }
+  .dark .bt { color: #a2d39c; } .dark .bf { color: #ffac5f; }
+  .dark .nl { color: #d8a7e0; } .dark .ud { color: #89bbb6; }
+  /* LIGHT */
+  .light pre { background: #EFE7D3; color: #3B4048; }
+  .light .kw { color: #C5243A; } .light .fn { color: #2C6A0E; } .light .cls { color: #1B4FC2; }
+  .light .str { color: #956300; } .light .num { color: #5538A0; } .light .cmt { color: #2878B5; }
+  .light .type { color: #0A5E9E; } .light .arg { color: #984558; font-style: italic; }
+  .light .op { color: #C5243A; } .light .p { color: #303540; } .light .obj { color: #1B4FC2; }
+  .light .bt { color: #008A78; } .light .bf { color: #D04800; }
+  .light .nl { color: #9E18C2; } .light .ud { color: #0E7D75; }
+  /* Palette */
+  .palette-section { width: 100%; max-width: 1140px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 4px; }
+  .palette-card { border-radius: 10px; padding: 20px 24px; display: flex; flex-direction: column; gap: 12px; width: 560px; }
+  .palette-card.dark-card { background: #282c34; }
+  .palette-card.light-card { background: #EFE7D3; }
+  .palette-card h3 { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; }
+  .palette-card.dark-card h3 { color: #676f7d; }
+  .palette-card.light-card h3 { color: #93A1A1; }
+  .swatches { display: flex; gap: 8px; flex-wrap: wrap; }
+  .sw { display: flex; align-items: center; gap: 8px; padding: 5px 10px; border-radius: 6px; font-size: 11px; font-family: 'JetBrains Mono', monospace; }
+  .dark-card .sw { background: rgba(255,255,255,0.05); }
+  .light-card .sw { background: rgba(0,0,0,0.04); }
+  .sw .d { width: 14px; height: 14px; border-radius: 4px; flex-shrink: 0; }
+  .dark-card .sw .l { color: #888; } .light-card .sw .l { color: #93A1A1; }
+  .custom-row { border-top: 1px solid rgba(128,128,128,0.15); padding-top: 12px; margin-top: 4px; }
+</style>
+</head>
+<body>
+<div class="title-area">
+  <h1>Solkai Theme</h1>
+  <p>One Monokai dark + Solarized-inspired warm light — with custom boolean / null / undefined highlights</p>
+</div>
+<!-- PALETTES -->
+<h2>Color Palette</h2>
+<div class="palette-section">
+<div class="palette-card dark-card">
+  <h3>Solkai Dark — Syntax</h3>
+  <div class="swatches">
+    <div class="sw"><div class="d" style="background:#e06c75"></div><span class="l">keyword</span></div>
+    <div class="sw"><div class="d" style="background:#e5c07b"></div><span class="l">string</span></div>
+    <div class="sw"><div class="d" style="background:#98c379"></div><span class="l">function</span></div>
+    <div class="sw"><div class="d" style="background:#61afef"></div><span class="l">class</span></div>
+    <div class="sw"><div class="d" style="background:#c678dd"></div><span class="l">number</span></div>
+    <div class="sw"><div class="d" style="background:#56b6c2"></div><span class="l">type</span></div>
+    <div class="sw"><div class="d" style="background:#d19a66"></div><span class="l">param</span></div>
+    <div class="sw"><div class="d" style="background:#3498DB"></div><span class="l">comment</span></div>
+  </div>
+  <div class="swatches custom-row">
+    <div class="sw"><div class="d" style="background:#a2d39c"></div><span class="l">true</span></div>
+    <div class="sw"><div class="d" style="background:#ffac5f"></div><span class="l">false</span></div>
+    <div class="sw"><div class="d" style="background:#d8a7e0"></div><span class="l">null</span></div>
+    <div class="sw"><div class="d" style="background:#89bbb6"></div><span class="l">undefined</span></div>
+  </div>
+</div>
+<div class="palette-card light-card">
+  <h3>Solkai Light — Syntax</h3>
+  <div class="swatches">
+    <div class="sw"><div class="d" style="background:#C5243A"></div><span class="l">keyword</span></div>
+    <div class="sw"><div class="d" style="background:#956300"></div><span class="l">string</span></div>
+    <div class="sw"><div class="d" style="background:#2C6A0E"></div><span class="l">function</span></div>
+    <div class="sw"><div class="d" style="background:#1B4FC2"></div><span class="l">class</span></div>
+    <div class="sw"><div class="d" style="background:#5538A0"></div><span class="l">number</span></div>
+    <div class="sw"><div class="d" style="background:#0A5E9E"></div><span class="l">type</span></div>
+    <div class="sw"><div class="d" style="background:#984558"></div><span class="l">param</span></div>
+    <div class="sw"><div class="d" style="background:#2878B5"></div><span class="l">comment</span></div>
+  </div>
+  <div class="swatches custom-row">
+    <div class="sw"><div class="d" style="background:#008A78"></div><span class="l">true</span></div>
+    <div class="sw"><div class="d" style="background:#D04800"></div><span class="l">false</span></div>
+    <div class="sw"><div class="d" style="background:#9E18C2"></div><span class="l">null</span></div>
+    <div class="sw"><div class="d" style="background:#0E7D75"></div><span class="l">undefined</span></div>
+  </div>
+</div>
+</div>
+
+<h2>Preview</h2>
+<div class="themes">
+<!-- DARK -->
+<div class="window dark">
+  <div class="titlebar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><span>Solkai Dark</span><div style="width:44px"></div></div>
+  <pre><span class="cmt">// Authentication middleware</span>
+<span class="kw">import</span> <span class="p">{</span> <span class="cls">Request</span><span class="p">,</span> <span class="cls">Response</span> <span class="p">}</span> <span class="kw">from</span> <span class="str">'express'</span><span class="p">;</span>
+
+<span class="kw">interface</span> <span class="cls">Session</span> <span class="p">{</span>
+  <span class="p">token</span><span class="p">:</span> <span class="type">string</span> <span class="op">|</span> <span class="nl">null</span><span class="p">;</span>
+  <span class="p">verified</span><span class="p">:</span> <span class="type">boolean</span><span class="p">;</span>
+  <span class="p">metadata</span><span class="op">?</span><span class="p">:</span> <span class="type">Record</span><span class="p">&lt;</span><span class="type">string</span><span class="p">,</span> <span class="type">unknown</span><span class="p">&gt;;</span>
+<span class="p">}</span>
+
+<span class="kw">const</span> <span class="type">TIMEOUT</span> <span class="op">=</span> <span class="num">3000</span><span class="p">;</span>
+
+<span class="kw">export</span> <span class="kw">function</span> <span class="fn">authenticate</span><span class="p">(</span><span class="arg">req</span><span class="p">:</span> <span class="cls">Request</span><span class="p">)</span><span class="p">:</span> <span class="cls">Session</span> <span class="p">{</span>
+  <span class="kw">const</span> <span class="p">header</span> <span class="op">=</span> <span class="arg">req</span><span class="p">.</span><span class="p">headers</span><span class="p">[</span><span class="str">'authorization'</span><span class="p">];</span>
+
+  <span class="kw">if</span> <span class="p">(</span><span class="p">header</span> <span class="op">===</span> <span class="ud">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kw">return</span> <span class="p">{</span> <span class="p">token</span><span class="p">:</span> <span class="nl">null</span><span class="p">,</span> <span class="p">verified</span><span class="p">:</span> <span class="bf">false</span> <span class="p">};</span>
+  <span class="p">}</span>
+
+  <span class="kw">const</span> <span class="p">result</span> <span class="op">=</span> <span class="fn">verifyJWT</span><span class="p">(</span><span class="p">header</span><span class="p">,</span> <span class="type">TIMEOUT</span><span class="p">);</span>
+  <span class="kw">const</span> <span class="p">valid</span> <span class="op">=</span> <span class="p">result</span><span class="p">.</span><span class="p">payload</span> <span class="op">!==</span> <span class="nl">null</span><span class="p">;</span>
+
+  <span class="kw">return</span> <span class="p">{</span>
+    <span class="p">token</span><span class="p">:</span> <span class="p">result</span><span class="p">.</span><span class="p">payload</span><span class="p">,</span>
+    <span class="p">verified</span><span class="p">:</span> <span class="bt">true</span><span class="p">,</span>
+    <span class="p">metadata</span><span class="p">:</span> <span class="p">{</span> <span class="p">iat</span><span class="p">:</span> <span class="obj">Date</span><span class="p">.</span><span class="fn">now</span><span class="p">()</span> <span class="p">}</span>
+  <span class="p">};</span>
+<span class="p">}</span></pre>
+</div>
+<!-- LIGHT -->
+<div class="window light">
+  <div class="titlebar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><span>Solkai Light</span><div style="width:44px"></div></div>
+  <pre><span class="cmt">// Authentication middleware</span>
+<span class="kw">import</span> <span class="p">{</span> <span class="cls">Request</span><span class="p">,</span> <span class="cls">Response</span> <span class="p">}</span> <span class="kw">from</span> <span class="str">'express'</span><span class="p">;</span>
+
+<span class="kw">interface</span> <span class="cls">Session</span> <span class="p">{</span>
+  <span class="p">token</span><span class="p">:</span> <span class="type">string</span> <span class="op">|</span> <span class="nl">null</span><span class="p">;</span>
+  <span class="p">verified</span><span class="p">:</span> <span class="type">boolean</span><span class="p">;</span>
+  <span class="p">metadata</span><span class="op">?</span><span class="p">:</span> <span class="type">Record</span><span class="p">&lt;</span><span class="type">string</span><span class="p">,</span> <span class="type">unknown</span><span class="p">&gt;;</span>
+<span class="p">}</span>
+
+<span class="kw">const</span> <span class="type">TIMEOUT</span> <span class="op">=</span> <span class="num">3000</span><span class="p">;</span>
+
+<span class="kw">export</span> <span class="kw">function</span> <span class="fn">authenticate</span><span class="p">(</span><span class="arg">req</span><span class="p">:</span> <span class="cls">Request</span><span class="p">)</span><span class="p">:</span> <span class="cls">Session</span> <span class="p">{</span>
+  <span class="kw">const</span> <span class="p">header</span> <span class="op">=</span> <span class="arg">req</span><span class="p">.</span><span class="p">headers</span><span class="p">[</span><span class="str">'authorization'</span><span class="p">];</span>
+
+  <span class="kw">if</span> <span class="p">(</span><span class="p">header</span> <span class="op">===</span> <span class="ud">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kw">return</span> <span class="p">{</span> <span class="p">token</span><span class="p">:</span> <span class="nl">null</span><span class="p">,</span> <span class="p">verified</span><span class="p">:</span> <span class="bf">false</span> <span class="p">};</span>
+  <span class="p">}</span>
+
+  <span class="kw">const</span> <span class="p">result</span> <span class="op">=</span> <span class="fn">verifyJWT</span><span class="p">(</span><span class="p">header</span><span class="p">,</span> <span class="type">TIMEOUT</span><span class="p">);</span>
+  <span class="kw">const</span> <span class="p">valid</span> <span class="op">=</span> <span class="p">result</span><span class="p">.</span><span class="p">payload</span> <span class="op">!==</span> <span class="nl">null</span><span class="p">;</span>
+
+  <span class="kw">return</span> <span class="p">{</span>
+    <span class="p">token</span><span class="p">:</span> <span class="p">result</span><span class="p">.</span><span class="p">payload</span><span class="p">,</span>
+    <span class="p">verified</span><span class="p">:</span> <span class="bt">true</span><span class="p">,</span>
+    <span class="p">metadata</span><span class="p">:</span> <span class="p">{</span> <span class="p">iat</span><span class="p">:</span> <span class="obj">Date</span><span class="p">.</span><span class="fn">now</span><span class="p">()</span> <span class="p">}</span>
+  <span class="p">};</span>
+<span class="p">}</span></pre>
+</div>
+</div>
+</body>
+</html>
