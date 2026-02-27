@@ -2,7 +2,7 @@
   "name": "solkai-theme",
   "displayName": "Solkai Theme",
   "description": "A dark/light theme set combining One Monokai syntax with Solarized Light warmth. Features custom boolean/null/undefined highlighting.",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "publisher": "jihong88",
   "icon": "icon.png",
   "engines": {
