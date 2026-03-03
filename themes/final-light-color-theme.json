@@ -58,7 +58,7 @@
     "debugTokenExpression.error": "#ff0000",
     "debugTokenExpression.name": "#A05A48",
     "debugTokenExpression.number": "#CE33C0",
-    "debugTokenExpression.string": "#C5A332",
+    "debugTokenExpression.string": "#C45000",
     "debugTokenExpression.value": "#383A42",
     "debugToolBar.background": "#CFC8B3",
     "debugView.exceptionLabelBackground": "#ff0000",
@@ -326,11 +326,11 @@
     "symbolIcon.propertyForeground": "#A05A48",
     "symbolIcon.referenceForeground": "#383a42",
     "symbolIcon.snippetForeground": "#A0A1A7",
-    "symbolIcon.stringForeground": "#C5A332",
+    "symbolIcon.stringForeground": "#C45000",
     "symbolIcon.structForeground": "#d52753",
     "symbolIcon.textForeground": "#A0A1A7",
     "symbolIcon.typeParameterForeground": "#1a8a96",
-    "symbolIcon.unitForeground": "#C5A332",
+    "symbolIcon.unitForeground": "#9E6B00",
     "symbolIcon.variableForeground": "#383a42",
     "tab.activeBorderTop": "#0099e1",
     "tab.activeForeground": "#383a42",
@@ -401,7 +401,7 @@
         "string.template"
       ],
       "settings": {
-        "foreground": "#956300"
+        "foreground": "#C45000"
       }
     },
     {
@@ -703,7 +703,7 @@
         "variable.sass.string"
       ],
       "settings": {
-        "foreground": "#956300"
+        "foreground": "#C45000"
       }
     },
     {
@@ -795,7 +795,7 @@
       "name": "diff.changed",
       "scope": "markup.changed",
       "settings": {
-        "foreground": "#956300"
+        "foreground": "#C45000"
       }
     },
     {
@@ -807,7 +807,7 @@
     {
       "scope": "entity.name.filename.find-in-files",
       "settings": {
-        "foreground": "#956300"
+        "foreground": "#C45000"
       }
     },
     {
