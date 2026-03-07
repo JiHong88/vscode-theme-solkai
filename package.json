@@ -25,6 +25,9 @@
     "color theme",
     "warm light"
   ],
+  "scripts": {
+    "patch": "vsce publish patch"
+  },
   "contributes": {
     "themes": [
       {
