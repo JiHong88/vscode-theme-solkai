@@ -20,9 +20,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
----
-
-This theme is built upon:
-- One Monokai (MIT) by azemoh — https://github.com/azemoh/vscode-one-monokai
-- Solarized Light (MIT) by Microsoft — https://github.com/microsoft/vscode
-- Bluloco Light (MIT) by uloco — https://github.com/uloco/theme-bluloco-light
+This notice applies to original Solkai material. It does not grant MIT
+permissions for third-party material. See THIRD-PARTY-NOTICES.md for
+upstream notices and license texts.

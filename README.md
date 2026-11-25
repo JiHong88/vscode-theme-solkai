@@ -63,12 +63,10 @@ Add to your `settings.json`:
 
 ## Credits
 
-Built on top of:
+- [One Monokai](https://github.com/azemoh/vscode-one-monokai) by Joshua Azemoh (MIT). Solkai Dark adapts its UI and syntax colors; Solkai Light also adapts its syntax rules.
+- [Solarized Light for VS Code](https://github.com/microsoft/vscode/tree/1.109.5/extensions/theme-solarized-light) (MIT). Solkai Light takes inspiration from its warm palette.
+- [Bluloco Light](https://github.com/uloco/theme-bluloco-light) by uloco. Solkai Light adapts its UI color configuration. The [upstream revision reviewed](https://github.com/uloco/theme-bluloco-light/blob/5fe02401e9b49742ff5c75c06e3d2eb465e46724/LICENSE) is licensed under GNU LGPL v3, not MIT.
 
-- [One Monokai](https://github.com/azemoh/vscode-one-monokai) by azemoh (MIT)
-- [Solarized Light](https://github.com/microsoft/vscode) by Microsoft (MIT)
-- [Bluloco Light](https://github.com/uloco/theme-bluloco-light) by uloco (MIT) — UI color coverage
+## Licensing
 
-## License
-
-MIT
+See [LICENSE](./LICENSE) for Solkai's original material and [Third-party notices](./THIRD-PARTY-NOTICES.md) for upstream credits, license texts, and the outstanding release review for Bluloco-derived material.
