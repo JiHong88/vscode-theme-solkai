@@ -28,6 +28,15 @@
   "scripts": {
     "patch": "vsce publish patch"
   },
+  "files": [
+    "LICENSE",
+    "THIRD-PARTY-NOTICES.md",
+    "licenses/*.txt",
+    "icon.png",
+    "images/preview.png",
+    "theme-preview.html",
+    "themes/*.json"
+  ],
   "contributes": {
     "themes": [
       {
